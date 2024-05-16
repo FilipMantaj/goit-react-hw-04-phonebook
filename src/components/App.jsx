@@ -12,14 +12,12 @@ export const App = () => {
   const [number, setNumber] = useState('');
 
   useEffect(() => {
-    // get from local storage
     const savedContacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(savedContacts);
     setContacts(parsedContacts || []);
   }, []);
 
   useEffect(() => {
-    // remove from or add to local storage
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
